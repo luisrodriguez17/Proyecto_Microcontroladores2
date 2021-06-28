@@ -4,7 +4,7 @@ module modulo_area(
 	input clk,
 	input reset,
 	input [7:0] target,
-	output terminado,
+	output reg terminado,
 	output [23:0] hash
 
 );
@@ -13,12 +13,12 @@ module modulo_area(
 	entrada_hash entrada_hash1(inicio, terminado, clk, reset,  nonce);
 	micro_ucr_hash micro_ucr_hash1(bloque_bytes, nonce, clk, reset, hash);
 	
-	always @(*) begin
+	always @(posedge clk) begin
 		if(reset == 0)begin
 			terminado = 0;
 		end
 		else begin
-			if(hash[23:16] < target & hash[15:8] < target)begin
+			if(hash[23:16] < target & hash[15:8] < target | terminado == 1)begin
 				terminado = 1;
 			end
 			else begin
@@ -27,10 +27,7 @@ module modulo_area(
 		end
 	end
 
-
-
-
+	// assign terminado = (hash[23:16] < target & hash[15:8] < target) ? 1 :
+	// 					(terminado == 'bx)? 0 : 0;
 
 endmodule
-
-

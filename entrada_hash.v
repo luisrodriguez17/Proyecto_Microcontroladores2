@@ -3,7 +3,7 @@ module entrada_hash(
 	input terminado,
 	input clk,
 	input reset,
-	output [31:0] nonce
+	output reg [31:0] nonce
 );
 
 	reg [31:0] contadores;
@@ -17,7 +17,7 @@ module entrada_hash(
 			contadores <= contadores +1;
 			nonce <= contadores;
 		end
-		else
+		else begin
 			contadores <= contadores;
 			nonce <= contadores;
 		end
