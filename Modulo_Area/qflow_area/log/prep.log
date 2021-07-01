@@ -1,0 +1,12 @@
+Qflow project preparation output log Thu Jul  1 09:13:28 2021
+
+--------------------------------
+Qflow project setup
+--------------------------------
+
+Technology set to osu018
+Regenerating files for existing project modulo_area
+
+No actions specified on command line;
+creating qflow script file /home/erick/Documentos/UCR/UCR_2021/I-2021/Microelectronica/Proyecto_2/repositorio/qflow_area/qflow_exec.sh only.
+Uncomment lines in this file and source the file to run the flow.
